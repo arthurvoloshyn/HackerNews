@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AlgoliaReactApi/static/css/main.cdc1abe6.chunk.css",
+    "main.js": "/AlgoliaReactApi/static/js/main.be45a9dc.chunk.js",
+    "main.js.map": "/AlgoliaReactApi/static/js/main.be45a9dc.chunk.js.map",
+    "runtime~main.js": "/AlgoliaReactApi/static/js/runtime~main.393fd6d2.js",
+    "runtime~main.js.map": "/AlgoliaReactApi/static/js/runtime~main.393fd6d2.js.map",
+    "static/js/2.1e4a2dbe.chunk.js": "/AlgoliaReactApi/static/js/2.1e4a2dbe.chunk.js",
+    "static/js/2.1e4a2dbe.chunk.js.map": "/AlgoliaReactApi/static/js/2.1e4a2dbe.chunk.js.map",
+    "index.html": "/AlgoliaReactApi/index.html",
+    "precache-manifest.13d899a904e1fd11e95bac1a6c1fff68.js": "/AlgoliaReactApi/precache-manifest.13d899a904e1fd11e95bac1a6c1fff68.js",
+    "service-worker.js": "/AlgoliaReactApi/service-worker.js",
+    "static/css/main.cdc1abe6.chunk.css.map": "/AlgoliaReactApi/static/css/main.cdc1abe6.chunk.css.map"
+  }
+}
