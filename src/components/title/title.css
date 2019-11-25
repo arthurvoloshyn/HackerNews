@@ -6,3 +6,9 @@
   color: rgba(175, 47, 47, 0.15);
   margin-bottom: 20px;
 }
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 75px;
+  }
+}
