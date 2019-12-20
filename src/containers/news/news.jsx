@@ -15,30 +15,29 @@ const PAGE_PARAM = 'page=';
 const HITS = [
   {
     value: 10,
-    label: 10,
+    label: 10
   },
   {
     value: 20,
-    label: 20,
+    label: 20
   },
   {
     value: 40,
-    label: 40,
+    label: 40
   },
   {
     value: 50,
-    label: 50,
+    label: 50
   }
-]
+];
 
 class News extends Component {
-
   state = {
     searchQuery: '',
     result: {},
     hitsPerPage: 20,
-    page: 0,
-  }
+    page: 0
+  };
 
   componentDidMount() {
     const { searchQuery, hitsPerPage, page } = this.state;
@@ -50,44 +49,51 @@ class News extends Component {
       .then(res => res.json())
       .then(result => this.setNews(result))
       .catch(error => error);
-  }
+  };
 
   handleInputChange = ({ target: { value } }) => {
     this.setState({
       searchQuery: value
-    })
-  }
+    });
+  };
 
   getSearch = ({ key }) => {
-    if(key === 'Enter') {
+    if (key === 'Enter') {
       const { searchQuery, hitsPerPage } = this.state;
+      const page = 0;
       this.setState({
-        page: 0,
-      })
-      this.fetchData(searchQuery, hitsPerPage, 0);
+        page
+      });
+      this.fetchData(searchQuery, hitsPerPage, page);
     }
-  }
+  };
 
   setNews = result => {
     this.setState({ result });
-  }
+  };
 
   handleHitsChange = ({ target: { value } }) => {
     const { searchQuery } = this.state;
+    const page = 0;
 
-    this.setState({
-      hitsPerPage: +value,
-      page: 0
-    }, () => {
-      this.fetchData(searchQuery, this.state.hitsPerPage, 0);
-    })
-  }
+    this.setState(
+      {
+        hitsPerPage: +value,
+        page
+      },
+      () => {
+        const { hitsPerPage } = this.state;
+
+        this.fetchData(searchQuery, hitsPerPage, page);
+      }
+    );
+  };
 
   handlePageChange = ({ target }) => {
     const btnType = target.getAttribute('data-name');
     let { page } = this.state;
 
-    if(!isNaN(btnType)) {
+    if (!isNaN(btnType)) {
       this.updatePage(+btnType);
     } else {
       switch (btnType) {
@@ -101,16 +107,19 @@ class News extends Component {
           return null;
       }
     }
-  }
+  };
 
-  updatePage = (number) => {
+  updatePage = number => {
     const { searchQuery, hitsPerPage } = this.state;
-    this.setState({
-      page: number,
-    }, () => {
-      this.fetchData(searchQuery, hitsPerPage, number);
-    })
-  }
+    this.setState(
+      {
+        page: number
+      },
+      () => {
+        this.fetchData(searchQuery, hitsPerPage, number);
+      }
+    );
+  };
 
   render() {
     const { searchQuery, result, hitsPerPage } = this.state;
@@ -120,24 +129,12 @@ class News extends Component {
       <div className="wrapper">
         <Title title="Algolia Api News" />
         <Select options={HITS} handleChange={this.handleHitsChange} value={hitsPerPage} />
-        <Pagination
-          onClick={this.handlePageChange}
-          page={page}
-          lastPage={nbPages}
-        />
+        <Pagination onClick={this.handlePageChange} page={page} lastPage={nbPages} />
         <Input onKeyPress={this.getSearch} onChange={this.handleInputChange} value={searchQuery} />
         <ul className="newsList">
-          {hits.map(({ author, created_at, num_comments, objectID, title, points, url }) =>
-            <NewsPost
-              key={objectID}
-              author={author}
-              created_at={created_at}
-              num_comments={num_comments}
-              title={title}
-              points={points}
-              url={url}
-            />
-          )}
+          {hits.map(({ author, created_at, num_comments, objectID, title, points, url }) => (
+            <NewsPost key={objectID} author={author} created_at={created_at} num_comments={num_comments} title={title} points={points} url={url} />
+          ))}
         </ul>
       </div>
     );
