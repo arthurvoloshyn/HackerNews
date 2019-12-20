@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AlgoliaReactApi/static/css/main.3b28c731.chunk.css",
-    "main.js": "/AlgoliaReactApi/static/js/main.be45a9dc.chunk.js",
-    "main.js.map": "/AlgoliaReactApi/static/js/main.be45a9dc.chunk.js.map",
+    "main.css": "/AlgoliaReactApi/static/css/main.b20fa444.chunk.css",
+    "main.js": "/AlgoliaReactApi/static/js/main.909219f8.chunk.js",
+    "main.js.map": "/AlgoliaReactApi/static/js/main.909219f8.chunk.js.map",
     "runtime~main.js": "/AlgoliaReactApi/static/js/runtime~main.393fd6d2.js",
     "runtime~main.js.map": "/AlgoliaReactApi/static/js/runtime~main.393fd6d2.js.map",
     "static/js/2.1e4a2dbe.chunk.js": "/AlgoliaReactApi/static/js/2.1e4a2dbe.chunk.js",
     "static/js/2.1e4a2dbe.chunk.js.map": "/AlgoliaReactApi/static/js/2.1e4a2dbe.chunk.js.map",
     "index.html": "/AlgoliaReactApi/index.html",
-    "precache-manifest.2256751c292f5af67e9402f0808a1ecd.js": "/AlgoliaReactApi/precache-manifest.2256751c292f5af67e9402f0808a1ecd.js",
+    "precache-manifest.6f96658d284b286fc700ffd7c0b695ff.js": "/AlgoliaReactApi/precache-manifest.6f96658d284b286fc700ffd7c0b695ff.js",
     "service-worker.js": "/AlgoliaReactApi/service-worker.js",
-    "static/css/main.3b28c731.chunk.css.map": "/AlgoliaReactApi/static/css/main.3b28c731.chunk.css.map"
+    "static/css/main.b20fa444.chunk.css.map": "/AlgoliaReactApi/static/css/main.b20fa444.chunk.css.map"
   }
 }
