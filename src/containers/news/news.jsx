@@ -127,7 +127,7 @@ class News extends Component {
 
     return (
       <div className="wrapper">
-        <Title title="Algolia Api News" />
+        <Title title="Hacker News" />
         <Select options={HITS} handleChange={this.handleHitsChange} value={hitsPerPage} />
         <Pagination onClick={this.handlePageChange} page={page} lastPage={nbPages} />
         <Input onKeyPress={this.getSearch} onChange={this.handleInputChange} value={searchQuery} />
