@@ -5,14 +5,16 @@ import './select.css';
 
 const Input = ({ handleChange, options, value }) => (
   <div className="selectWrapper">
-    <select onChange={handleChange} value={value}>
+    <select onChange={handleChange} value={value} id="select" name="select">
       {options.map(({ value, label }) => (
         <option key={value} value={value}>
           {label}
         </option>
       ))}
     </select>
-    <span className="selectText">per page</span>
+    <label className="selectText" htmlFor="select">
+      per page
+    </label>
   </div>
 );
 
