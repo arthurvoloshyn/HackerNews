@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c696fa0c716cd3ff7a434fc9cde6e2cc",
+    "revision": "e9dfeefc151971e34adbe3d028328967",
     "url": "/HackerNews/index.html"
   },
   {
-    "revision": "989888cbf5560c3c2fd5",
+    "revision": "925ba7cb338ade5a8bba",
     "url": "/HackerNews/static/css/main.122c703a.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HackerNews/static/js/2.1e4a2dbe.chunk.js"
   },
   {
-    "revision": "989888cbf5560c3c2fd5",
-    "url": "/HackerNews/static/js/main.0778f502.chunk.js"
+    "revision": "925ba7cb338ade5a8bba",
+    "url": "/HackerNews/static/js/main.3d0823ba.chunk.js"
   },
   {
     "revision": "d16cec9bd63d8aca427f",
