@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 
+import { BASE_PATH, SEARCH_PATH, SEARCH_PARAM, PAGE_HITS, PAGE_PARAM, HITS } from '../../constants/constants';
+
 import Title from '../../components/title/title';
 import NewsPost from '../../components/news/news';
 import Input from '../../components/input/input';
 import Select from '../../components/select/select';
 import Pagination from '../../components/pagination/pagination';
-
-const BASE_PATH = 'https://hn.algolia.com/api/v1';
-const SEARCH_PATH = '/search';
-const SEARCH_PARAM = 'query=';
-const PAGE_HITS = 'hitsPerPage=';
-const PAGE_PARAM = 'page=';
-
-const HITS = [
-  {
-    value: 10,
-    label: 10
-  },
-  {
-    value: 20,
-    label: 20
-  },
-  {
-    value: 40,
-    label: 40
-  },
-  {
-    value: 50,
-    label: 50
-  }
-];
 
 class News extends Component {
   state = {
