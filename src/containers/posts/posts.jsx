@@ -7,6 +7,8 @@ import {
   PAGE_HITS,
   PAGE_PARAM,
   HITS,
+  PREV_PAGE,
+  NEXT_PAGE,
 } from '../../constants/constants';
 import Title from '../../components/title/title';
 import Post from '../../components/post/post';
@@ -84,11 +86,11 @@ class Posts extends Component {
       this.updatePage(+btnType);
     } else {
       switch (btnType) {
-        case 'next':
-          this.updatePage(page + 1);
-          break;
-        case 'prev':
+        case PREV_PAGE:
           this.updatePage(page - 1);
+          break;
+        case NEXT_PAGE:
+          this.updatePage(page + 1);
           break;
         default:
       }
@@ -110,12 +112,13 @@ class Posts extends Component {
   render() {
     const { searchQuery, result, hitsPerPage } = this.state;
     const { hits = [], page, nbPages } = result;
+    const isHitsExist = hits.length > 0;
 
     return (
       <div className="wrapper">
         <Title title="Hacker News" />
         <Select handleChange={this.handleHitsChange} options={HITS} value={hitsPerPage} />
-        {hits.length > 0 && (
+        {isHitsExist && (
           <Pagination lastPage={nbPages} onClick={this.handlePageChange} page={page} />
         )}
         <Input onChange={this.handleInputChange} onKeyPress={this.getSearch} value={searchQuery} />

@@ -22,3 +22,6 @@ export const HITS = [
     label: 50,
   },
 ];
+
+export const PREV_PAGE = 'prev';
+export const NEXT_PAGE = 'next';

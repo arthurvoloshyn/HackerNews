@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { PREV_PAGE, NEXT_PAGE } from '../../constants/constants';
+
 import './pagination.css';
 
 const renderPaginationBtns = (onClick, page, lastPage) => {
@@ -23,27 +25,27 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
     btnsArr = [...middleBtn, ...lastBtns]; // last 3 pages
   }
 
-  return btnsArr.map(num => {
-    return num === '...' ? (
+  return btnsArr.map(num =>
+    num === '...' ? (
       num
     ) : (
       <button key={num} className={num === page ? 'active' : ''} data-name={num} onClick={onClick}>
         {num}
       </button>
-    );
-  });
+    ),
+  );
 };
 
 const Pagination = ({ onClick, page, lastPage }) => (
   <div className="paginationWrapper">
     {page !== 0 && (
-      <button data-name="prev" onClick={onClick}>
+      <button data-name={PREV_PAGE} onClick={onClick}>
         {'<<'}
       </button>
     )}
     {renderPaginationBtns(onClick, page, lastPage)}
     {page !== lastPage - 1 && (
-      <button data-name="next" onClick={onClick}>
+      <button data-name={NEXT_PAGE} onClick={onClick}>
         {'>>'}
       </button>
     )}
