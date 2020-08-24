@@ -8,9 +8,6 @@
     "type": "git",
     "url": "https://github.com/ArturW1998/HackerNews"
   },
-  "bugs": {
-    "url": "https://github.com/ArturW1998/HackerNews/issues"
-  },
   "keywords": [
     "react",
     "reactjs"
@@ -18,18 +15,18 @@
   "author": "Artur Voloshyn (https://github.com/arturw1998)",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:watch": "npm test -- --watchAll --verbose",
     "test:coverage": "npm test -- --bail --coverage --watchAll",
@@ -48,6 +45,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "identity-obj-proxy": "^3.0.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
@@ -78,6 +76,19 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run precommit"
+    }
+  },
+  "jest": {
+    "clearMocks": true,
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
   "browserslist": {
