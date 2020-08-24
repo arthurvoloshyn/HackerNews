@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import registerServiceWorker from './registerServiceWorker';
-
-import App from './containers/news/news';
+import * as serviceWorker from './serviceWorker';
+import App from './containers/posts/posts';
 
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('root'),
+);
 
-registerServiceWorker();
+serviceWorker.register();

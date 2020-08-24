@@ -17,6 +17,8 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
     btnsArr = [...gapBtns, ...middleBtn, ...lastBtns];
   } else if (page < lastPage - 3) {
     btnsArr = [...gapBtns, ...lastBtns]; // last 6 pages
+  } else if (page === 0 && lastPage === 0) {
+    btnsArr = [];
   } else {
     btnsArr = [...middleBtn, ...lastBtns]; // last 3 pages
   }
@@ -25,7 +27,7 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
     return num === '...' ? (
       num
     ) : (
-      <button key={num} onClick={onClick} data-name={num} className={num === page ? 'active' : ''}>
+      <button key={num} className={num === page ? 'active' : ''} data-name={num} onClick={onClick}>
         {num}
       </button>
     );
@@ -35,13 +37,13 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
 const Pagination = ({ onClick, page, lastPage }) => (
   <div className="paginationWrapper">
     {page !== 0 && (
-      <button onClick={onClick} data-name="prev">
+      <button data-name="prev" onClick={onClick}>
         {'<<'}
       </button>
     )}
     {renderPaginationBtns(onClick, page, lastPage)}
     {page !== lastPage - 1 && (
-      <button onClick={onClick} data-name="next">
+      <button data-name="next" onClick={onClick}>
         {'>>'}
       </button>
     )}
@@ -51,13 +53,13 @@ const Pagination = ({ onClick, page, lastPage }) => (
 Pagination.propTypes = {
   onClick: PropTypes.func,
   page: PropTypes.number,
-  lastPage: PropTypes.number
+  lastPage: PropTypes.number,
 };
 
 Pagination.defaultProps = {
   onClick: () => {},
   page: 0,
-  lastPage: 0
+  lastPage: 0,
 };
 
 export default Pagination;

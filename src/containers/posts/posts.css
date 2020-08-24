@@ -5,3 +5,10 @@
   padding: 0 20px;
   position: relative;
 }
+
+.newsList {
+  flex: 1 0 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

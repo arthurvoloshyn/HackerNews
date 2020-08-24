@@ -6,9 +6,3 @@
   margin-bottom: 20px;
   text-align: center;
 }
-
-@media (max-width: 400px) {
-  .title {
-    font-size: 75px;
-  }
-}

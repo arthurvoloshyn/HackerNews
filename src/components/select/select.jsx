@@ -5,29 +5,33 @@ import './select.css';
 
 const Input = ({ handleChange, options, value }) => (
   <div className="selectWrapper">
-    <select onChange={handleChange} value={value} id="select" name="select">
-      {options.map(({ value, label }) => (
-        <option key={value} value={value}>
-          {label}
-        </option>
-      ))}
-    </select>
-    <label className="selectText" htmlFor="select">
-      per page
-    </label>
+    {options.length > 0 ? (
+      <>
+        <select defaultValue={value} onBlur={handleChange} onChange={handleChange}>
+          {options.map(({ value, label }) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+        <span className="selectText">per page</span>
+      </>
+    ) : (
+      <div className="placeholder">&quot;No items&quot;</div>
+    )}
   </div>
 );
 
 Input.propTypes = {
   handleChange: PropTypes.func,
   options: PropTypes.array,
-  value: PropTypes.number
+  value: PropTypes.number,
 };
 
 Input.defaultProps = {
-  onChange: () => {},
+  handleChange: () => {},
   options: [],
-  value: 0
+  value: 0,
 };
 
 export default Input;
