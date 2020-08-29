@@ -10,6 +10,7 @@ import {
   PREV_PAGE,
   NEXT_PAGE,
 } from '../../constants/constants';
+import { getIsValidNumber } from '../../utils/utils';
 import Title from '../../components/title/title';
 import Post from '../../components/post/post';
 import Input from '../../components/input/input';
@@ -82,7 +83,7 @@ class Posts extends Component {
     const btnType = target.getAttribute('data-name');
     const { page } = this.state;
 
-    if (!Number.isNaN(btnType)) {
+    if (getIsValidNumber(btnType)) {
       this.updatePage(+btnType);
     } else {
       switch (btnType) {
@@ -93,6 +94,7 @@ class Posts extends Component {
           this.updatePage(page + 1);
           break;
         default:
+          break;
       }
     }
   };

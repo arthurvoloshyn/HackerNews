@@ -1,0 +1,16 @@
+{
+  "globals": {
+    "shallow": false,
+    "render": false,
+    "mount": false,
+    "toJson": false
+  },
+  "rules": {
+    "global-require": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+
+    "import/prefer-default-export": "off",
+
+    "react/jsx-props-no-spreading": "off"
+  }
+}

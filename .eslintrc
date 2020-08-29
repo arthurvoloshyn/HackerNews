@@ -56,11 +56,7 @@
   "globals": {
     "document": false,
     "navigator": false,
-    "window": false,
-    "shallow": false,
-    "render": false,
-    "mount": false,
-    "toJson": false
+    "window": false
   },
 
   "rules": {

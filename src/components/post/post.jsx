@@ -5,7 +5,7 @@ import './post.css';
 
 const Post = ({ author, createdAt, numComments, title, points, url }) => (
   <li className="post">
-    <a className="description" href={url} rel="noreferrer" target="_blank">
+    <a className="description" href={url} rel="noopener noreferrer" target="_blank">
       <h2 className="smTitle">{title}</h2>
       <span className="text">{`${points} points`}</span>
       <span className="comments">{`${numComments} comments`}</span>
