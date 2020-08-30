@@ -10,7 +10,9 @@
   },
   "keywords": [
     "react",
-    "reactjs"
+    "reactjs",
+    "jest",
+    "enzyme"
   ],
   "author": "Artur Voloshyn (https://github.com/arturw1998)",
   "license": "MIT",

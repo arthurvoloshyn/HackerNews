@@ -50,11 +50,10 @@ To do the actual linting and formatting, run:
 
 ### Unit Testing
 
-- @testing-library/jest-dom 4.x
-- @testing-library/react 9.x
-- @testing-library/user-event 7.x
+- jest 24.x
+- enzyme 3.x
 
-To run tests using Testing Library:
+To run tests using Jest and Enzyme:
 
 `npm test`
 
