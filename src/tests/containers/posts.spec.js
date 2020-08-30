@@ -21,6 +21,11 @@ const setUp = () => shallow(<Posts />);
 
 describe('Posts component', () => {
   const DEFAULT_PAGE = 10;
+
+  const defaultSearchQuery = '';
+  const defaultHitsPerPage = 20;
+  const defaultPage = 0;
+
   let component;
   let instance;
 
@@ -34,7 +39,7 @@ describe('Posts component', () => {
   });
 
   it('should call fetch in componentDidMount', () => {
-    const SEARCH_PARAMS = `${SEARCH_PARAM}${''}&${PAGE_HITS}${20}&${PAGE_PARAM}${0}`;
+    const SEARCH_PARAMS = `${SEARCH_PARAM}${defaultSearchQuery}&${PAGE_HITS}${defaultHitsPerPage}&${PAGE_PARAM}${defaultPage}`;
 
     expect(global.fetch).toHaveBeenCalledWith(`${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAMS}`);
   });
@@ -46,7 +51,7 @@ describe('Posts component', () => {
     });
 
     it('should call fetch with given argument', () => {
-      const SEARCH_PARAMS = `${SEARCH_PARAM}${''}&${PAGE_HITS}${20}&${PAGE_PARAM}${DEFAULT_PAGE}`;
+      const SEARCH_PARAMS = `${SEARCH_PARAM}${defaultSearchQuery}&${PAGE_HITS}${defaultHitsPerPage}&${PAGE_PARAM}${DEFAULT_PAGE}`;
 
       instance.updatePage(DEFAULT_PAGE);
       expect(global.fetch).toHaveBeenCalledWith(`${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAMS}`);
@@ -93,13 +98,13 @@ describe('Posts component', () => {
 
   describe('Posts handlers', () => {
     it('should handle search input value', () => {
-      expect(component.state().searchQuery).toBe('');
+      expect(component.state().searchQuery).toBe(defaultSearchQuery);
       instance.handleInputChange({ target: { value: 'test' } });
       expect(component.state().searchQuery).toBe('test');
     });
 
     it('should handle change of hits per page', () => {
-      expect(component.state().hitsPerPage).toBe(20);
+      expect(component.state().hitsPerPage).toBe(defaultHitsPerPage);
       instance.handleHitsChange({ target: { value: String(DEFAULT_PAGE) } });
       expect(component.state().hitsPerPage).toBe(DEFAULT_PAGE);
     });
@@ -107,7 +112,7 @@ describe('Posts component', () => {
     it("should handle change page if 'Enter' clicked", () => {
       instance.setState({ page: DEFAULT_PAGE });
       instance.getSearch({ key: 'Enter' });
-      expect(component.state().page).toBe(0);
+      expect(component.state().page).toBe(defaultPage);
     });
 
     it("should not change page if 'a' button clicked", () => {

@@ -30,7 +30,7 @@ describe('Select component', () => {
 
   describe('Has no props', () => {
     it('should render placeholder', () => {
-      const component = shallow(<Select />);
+      const component = setUp();
       const placeholder = component.find('.placeholder');
       expect(placeholder).toHaveLength(1);
     });

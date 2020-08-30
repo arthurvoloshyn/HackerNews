@@ -6,6 +6,7 @@ const setUp = props => shallow(<Post {...props} />);
 
 describe('should render Post component', () => {
   let component;
+
   beforeEach(() => {
     component = setUp();
   });

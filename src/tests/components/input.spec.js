@@ -2,15 +2,17 @@ import React from 'react';
 
 import Input from '../../components/input/input';
 
+const setUp = props => shallow(<Input {...props} />);
+
 describe('Input component', () => {
   it('should render Input component', () => {
-    const component = shallow(<Input />);
+    const component = setUp();
     expect(component).toMatchSnapshot();
   });
 
   it('should call onClick method', () => {
     const mockCallBack = jest.fn();
-    const component = shallow(<Input onChange={mockCallBack} />);
+    const component = setUp({ onChange: mockCallBack });
     expect(mockCallBack.mock.calls.length).toBe(0);
     component.find('.input').simulate('change');
     expect(mockCallBack.mock.calls.length).toBe(1);
