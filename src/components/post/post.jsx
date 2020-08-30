@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { trimString } from '../../utils/utils';
+
 import './post.css';
 
 const Post = ({ author, createdAt, numComments, title, points, url }) => (
   <li className="post">
     <a className="description" href={url} rel="noopener noreferrer" target="_blank">
-      <h2 className="smTitle">{title}</h2>
+      <h2 className="smTitle">{trimString(title, 75)}</h2>
       <span className="text">{`${points} points`}</span>
       <span className="comments">{`${numComments} comments`}</span>
       <span className="date">

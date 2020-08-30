@@ -37,8 +37,7 @@ class Posts extends Component {
 
     fetch(`${BASE_PATH}${SEARCH_PATH}?${PARAMS}`)
       .then(res => res.json())
-      .then(result => this.setNews(result))
-      .catch(error => error);
+      .then(result => this.setNews(result));
   };
 
   handleInputChange = ({ target: { value } }) => {
