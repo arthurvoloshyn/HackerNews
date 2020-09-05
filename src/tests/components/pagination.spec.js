@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Pagination from '../../components/pagination/pagination';
 
 const setUp = props => shallow(<Pagination {...props} lastPage={20} />);

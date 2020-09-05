@@ -72,21 +72,22 @@ class Posts extends Component {
 
   handlePageChange = ({ target }) => {
     const btnType = target.getAttribute('data-name');
+
+    getIsValidNumber(btnType) ? this.updatePage(+btnType) : this.handleSpecificBtnType(btnType);
+  };
+
+  handleSpecificBtnType = btnType => {
     const { page } = this.state;
 
-    if (getIsValidNumber(btnType)) {
-      this.updatePage(+btnType);
-    } else {
-      switch (btnType) {
-        case PAGES.PREV:
-          this.updatePage(page - 1);
-          break;
-        case PAGES.NEXT:
-          this.updatePage(page + 1);
-          break;
-        default:
-          break;
-      }
+    switch (btnType) {
+      case PAGES.PREV:
+        this.updatePage(page - 1);
+        break;
+      case PAGES.NEXT:
+        this.updatePage(page + 1);
+        break;
+      default:
+        break;
     }
   };
 
