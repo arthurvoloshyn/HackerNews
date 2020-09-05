@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Constants HITS constant should match the snapshot 1`] = `
+Array [
+  Object {
+    "label": 10,
+    "value": 10,
+  },
+  Object {
+    "label": 20,
+    "value": 20,
+  },
+  Object {
+    "label": 40,
+    "value": 40,
+  },
+  Object {
+    "label": 50,
+    "value": 50,
+  },
+]
+`;
+
+exports[`Constants PAGES constant should match the snapshot 1`] = `
+Object {
+  "NEXT": "next",
+  "PREV": "prev",
+}
+`;
+
+exports[`Constants PATHS constant should match the snapshot 1`] = `
+Object {
+  "BASE_PATH": "https://hn.algolia.com/api/v1",
+  "PAGE_HITS": "hitsPerPage=",
+  "PAGE_PARAM": "page=",
+  "SEARCH_PARAM": "query=",
+  "SEARCH_PATH": "/search",
+}
+`;

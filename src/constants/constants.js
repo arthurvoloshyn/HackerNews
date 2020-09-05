@@ -1,8 +1,10 @@
-export const BASE_PATH = 'https://hn.algolia.com/api/v1';
-export const SEARCH_PATH = '/search';
-export const SEARCH_PARAM = 'query=';
-export const PAGE_HITS = 'hitsPerPage=';
-export const PAGE_PARAM = 'page=';
+export const PATHS = {
+  BASE_PATH: 'https://hn.algolia.com/api/v1',
+  SEARCH_PATH: '/search',
+  SEARCH_PARAM: 'query=',
+  PAGE_HITS: 'hitsPerPage=',
+  PAGE_PARAM: 'page=',
+};
 
 export const HITS = [
   {
@@ -23,5 +25,7 @@ export const HITS = [
   },
 ];
 
-export const PREV_PAGE = 'prev';
-export const NEXT_PAGE = 'next';
+export const PAGES = {
+  PREV: 'prev',
+  NEXT: 'next',
+};

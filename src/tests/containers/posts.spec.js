@@ -1,14 +1,6 @@
 import React from 'react';
 
-import {
-  BASE_PATH,
-  SEARCH_PATH,
-  SEARCH_PARAM,
-  PAGE_HITS,
-  PAGE_PARAM,
-  NEXT_PAGE,
-  PREV_PAGE,
-} from '../../constants/constants';
+import { PATHS, PAGES } from '../../constants/constants';
 import Posts from '../../containers/posts/posts';
 
 import { NEWS } from '../stubs/stubs';
@@ -20,6 +12,8 @@ global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
 const setUp = () => shallow(<Posts />);
 
 describe('Posts component', () => {
+  const { BASE_PATH, SEARCH_PATH, SEARCH_PARAM, PAGE_HITS, PAGE_PARAM } = PATHS;
+
   const INIT_PAGE = 10;
 
   const defaultSearchQuery = '';
@@ -72,7 +66,7 @@ describe('Posts component', () => {
       instance.updatePage = jest.fn();
       instance.setState({ page: INIT_PAGE });
       instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue(PREV_PAGE) },
+        target: { getAttribute: jest.fn().mockReturnValue(PAGES.PREV) },
       });
       expect(instance.updatePage).toHaveBeenCalledWith(INIT_PAGE - 1);
     });
@@ -81,7 +75,7 @@ describe('Posts component', () => {
       instance.updatePage = jest.fn();
       instance.setState({ page: INIT_PAGE });
       instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue(NEXT_PAGE) },
+        target: { getAttribute: jest.fn().mockReturnValue(PAGES.NEXT) },
       });
       expect(instance.updatePage).toHaveBeenCalledWith(INIT_PAGE + 1);
     });

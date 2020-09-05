@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 
-import {
-  BASE_PATH,
-  SEARCH_PATH,
-  SEARCH_PARAM,
-  PAGE_HITS,
-  PAGE_PARAM,
-  HITS,
-  PREV_PAGE,
-  NEXT_PAGE,
-} from '../../constants/constants';
+import { PATHS, HITS, PAGES } from '../../constants/constants';
 import { getIsValidNumber } from '../../utils/utils';
 import Title from '../../components/title/title';
 import Post from '../../components/post/post';
@@ -33,6 +24,7 @@ class Posts extends Component {
   }
 
   fetchData = (searchQuery, hitsPerPage, page) => {
+    const { BASE_PATH, SEARCH_PATH, SEARCH_PARAM, PAGE_HITS, PAGE_PARAM } = PATHS;
     const PARAMS = `${SEARCH_PARAM}${searchQuery}&${PAGE_HITS}${hitsPerPage}&${PAGE_PARAM}${page}`;
 
     fetch(`${BASE_PATH}${SEARCH_PATH}?${PARAMS}`)
@@ -86,10 +78,10 @@ class Posts extends Component {
       this.updatePage(+btnType);
     } else {
       switch (btnType) {
-        case PREV_PAGE:
+        case PAGES.PREV:
           this.updatePage(page - 1);
           break;
-        case NEXT_PAGE:
+        case PAGES.NEXT:
           this.updatePage(page + 1);
           break;
         default:

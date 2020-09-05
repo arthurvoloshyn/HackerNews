@@ -30,6 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "test:update": "npm test -- -u",
     "test:watch": "npm test -- --watchAll --verbose",
     "test:coverage": "npm test -- --bail --coverage --watchAll",
     "predeploy": "npm run build",

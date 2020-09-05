@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PREV_PAGE, NEXT_PAGE } from '../../constants/constants';
+import { PAGES } from '../../constants/constants';
 
 import './pagination.css';
 
@@ -39,13 +39,13 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
 const Pagination = ({ onClick, page, lastPage }) => (
   <div className="paginationWrapper">
     {page !== 0 && (
-      <button data-name={PREV_PAGE} onClick={onClick}>
+      <button data-name={PAGES.PREV} onClick={onClick}>
         {'<<'}
       </button>
     )}
     {renderPaginationBtns(onClick, page, lastPage)}
     {page !== lastPage - 1 && (
-      <button data-name={NEXT_PAGE} onClick={onClick}>
+      <button data-name={PAGES.NEXT} onClick={onClick}>
         {'>>'}
       </button>
     )}
