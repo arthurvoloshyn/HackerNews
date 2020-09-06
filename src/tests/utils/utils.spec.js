@@ -2,27 +2,27 @@ import { getIsValidNumber, trimString } from '../../utils/utils';
 
 describe('trimString util', () => {
   describe('Positive trimming cases', () => {
-    describe('should slice the string with an ellipsis', () => {
-      it('should slice up to 5 characters', () => {
+    describe('should clip the string with an ellipsis', () => {
+      it('should clip up to 5 characters', () => {
         expect(trimString('LongName', 5)).toBe('LongN...');
       });
 
-      it('should slice up to 4 characters', () => {
+      it('should clip up to 4 characters', () => {
         expect(trimString('LongName', 4)).toBe('Long...');
       });
     });
 
-    it('should not slice the string with an ellipsis', () => {
+    it('should not clip the string with an ellipsis', () => {
       expect(trimString('LongName', 10)).toBe('LongName');
     });
 
-    it('should trim the space and slice the string with an ellipsis', () => {
+    it('should remove whitespace characters and clip the string with an ellipsis', () => {
       expect(trimString('   LongName   ', 3)).toBe('Lon...');
     });
   });
 
   describe('Negative trimming cases', () => {
-    it('should return a string with space', () => {
+    it('should return a string with whitespace characters', () => {
       expect(trimString('     ', 4)).toBe('     ');
     });
 
