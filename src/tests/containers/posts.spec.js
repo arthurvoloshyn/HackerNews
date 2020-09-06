@@ -91,16 +91,26 @@ describe('Posts component', () => {
   });
 
   describe('Posts handlers', () => {
-    it('should handle search input value', () => {
-      expect(component.state().searchQuery).toBe(defaultSearchQuery);
-      instance.handleInputChange({ target: { value: 'test' } });
-      expect(component.state().searchQuery).toBe('test');
+    describe('should handle search input value', () => {
+      it('before handling the search input value', () => {
+        expect(component.state().searchQuery).toBe(defaultSearchQuery);
+      });
+
+      it('after handling the search input value', () => {
+        instance.handleInputChange({ target: { value: 'test' } });
+        expect(component.state().searchQuery).toBe('test');
+      });
     });
 
-    it('should handle change of hits per page', () => {
-      expect(component.state().hitsPerPage).toBe(defaultHitsPerPage);
-      instance.handleHitsChange({ target: { value: String(INIT_PAGE) } });
-      expect(component.state().hitsPerPage).toBe(INIT_PAGE);
+    describe('should handle change of hits per page', () => {
+      it('before handling the change of hits per page', () => {
+        expect(component.state().hitsPerPage).toBe(defaultHitsPerPage);
+      });
+
+      it('after handling the change of hits per page', () => {
+        instance.handleHitsChange({ target: { value: String(INIT_PAGE) } });
+        expect(component.state().hitsPerPage).toBe(INIT_PAGE);
+      });
     });
 
     it("should handle change page if 'Enter' clicked", () => {

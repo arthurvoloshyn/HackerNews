@@ -10,12 +10,18 @@ describe('Input component', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should call onClick method', () => {
+  describe('should call onClick method', () => {
     const mockCallBack = jest.fn();
-    const component = setUp({ onChange: mockCallBack });
-    expect(mockCallBack.mock.calls.length).toBe(0);
-    component.find('.input').simulate('change');
-    expect(mockCallBack.mock.calls.length).toBe(1);
+
+    it('before calling the onClick method', () => {
+      expect(mockCallBack.mock.calls.length).toBe(0);
+    });
+
+    it('after calling the onClick method', () => {
+      const component = setUp({ onChange: mockCallBack });
+      component.find('.input').simulate('change');
+      expect(mockCallBack.mock.calls.length).toBe(1);
+    });
   });
 
   describe('defaultProps', () => {

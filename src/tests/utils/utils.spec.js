@@ -1,17 +1,38 @@
 import { getIsValidNumber, trimString } from '../../utils/utils';
 
 describe('trimString util', () => {
-  it('Positive trimming cases', () => {
-    expect(trimString('LongName', 5)).toBe('LongN...');
-    expect(trimString('LongName', 4)).toBe('Long...');
-    expect(trimString('LongName', 10)).toBe('LongName');
-    expect(trimString('   LongName   ', 3)).toBe('Lon...');
+  describe('Positive trimming cases', () => {
+    describe('should slice the string with an ellipsis', () => {
+      it('should slice up to 5 characters', () => {
+        expect(trimString('LongName', 5)).toBe('LongN...');
+      });
+
+      it('should slice up to 4 characters', () => {
+        expect(trimString('LongName', 4)).toBe('Long...');
+      });
+    });
+
+    it('should not slice the string with an ellipsis', () => {
+      expect(trimString('LongName', 10)).toBe('LongName');
+    });
+
+    it('should trim the space and slice the string with an ellipsis', () => {
+      expect(trimString('   LongName   ', 3)).toBe('Lon...');
+    });
   });
 
-  it('Negative trimming cases', () => {
-    expect(trimString('     ', 4)).toBe('     ');
-    expect(trimString(null, 4)).toBeNull();
-    expect(trimString(undefined, 4)).toBeUndefined();
+  describe('Negative trimming cases', () => {
+    it('should return a string with space', () => {
+      expect(trimString('     ', 4)).toBe('     ');
+    });
+
+    it('should return null', () => {
+      expect(trimString(null, 4)).toBeNull();
+    });
+
+    it('should return undefined', () => {
+      expect(trimString(undefined, 4)).toBeUndefined();
+    });
   });
 });
 
