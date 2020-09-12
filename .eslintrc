@@ -54,9 +54,9 @@
   ],
 
   "globals": {
-    "document": false,
-    "navigator": false,
-    "window": false
+    "document": "readonly",
+    "navigator": "readonly",
+    "window": "readonly"
   },
 
   "rules": {
@@ -278,6 +278,7 @@
     "react/no-danger": "error",
     "react/no-did-update-set-state": "error",
     "react/no-multi-comp": "error",
+    "react/no-string-refs": "error",
     "react/no-set-state": "off",
     "react/no-unknown-property": "error",
     "react/prefer-es6-class": "error",
