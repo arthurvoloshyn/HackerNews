@@ -25,6 +25,8 @@
     "declaration-empty-line-before": null,
     "declaration-property-value-blacklist": null,
     "function-url-quotes": "always",
+    "declaration-block-no-shorthand-property-overrides": null,
+    "font-family-no-missing-generic-family-keyword": null,
     "indentation": [2, { "ignore": ["value"] }],
     "max-nesting-depth": 10,
     "no-descending-specificity": null,
