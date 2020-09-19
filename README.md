@@ -7,10 +7,6 @@ Simple React Hacker News Application
 ### Provides
 
 - react ^16.x
-- prop-types 15.x
-- gh-pages 3.x
-- husky 3.x
-- lint-staged 9.x
 
 ### To install
 
