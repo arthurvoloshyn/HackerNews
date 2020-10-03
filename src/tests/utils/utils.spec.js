@@ -33,6 +33,10 @@ describe('trimString util', () => {
     it('should return undefined', () => {
       expect(trimString(undefined, 4)).toBeUndefined();
     });
+
+    it('should return a number.', () => {
+      expect(trimString(12345, 4)).toBe(12345);
+    });
   });
 });
 

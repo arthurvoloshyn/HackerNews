@@ -106,6 +106,57 @@ exports[`Pagination component should render Pagination with 3dots and 3 buttons 
 </div>
 `;
 
+exports[`Pagination component should render Pagination with 4 buttons 1`] = `
+<div
+  className="paginationWrapper"
+>
+  <button
+    data-name="prev"
+    onClick={[Function]}
+  >
+    &lt;&lt;
+  </button>
+  <button
+    className="active"
+    data-name={1}
+    key="1"
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    className=""
+    data-name={2}
+    key="2"
+    onClick={[Function]}
+  >
+    2
+  </button>
+  <button
+    className=""
+    data-name={3}
+    key="3"
+    onClick={[Function]}
+  >
+    3
+  </button>
+  <button
+    className=""
+    data-name={4}
+    key="4"
+    onClick={[Function]}
+  >
+    4
+  </button>
+  <button
+    data-name="next"
+    onClick={[Function]}
+  >
+    &gt;&gt;
+  </button>
+</div>
+`;
+
 exports[`Pagination component should render Pagination with props 1`] = `
 <div
   className="paginationWrapper"
@@ -238,12 +289,5 @@ exports[`Pagination component should render Pagination without 3dots in the midd
 exports[`Pagination component should render Pagination without props 1`] = `
 <div
   className="paginationWrapper"
->
-  <button
-    data-name="next"
-    onClick={[Function]}
-  >
-    &gt;&gt;
-  </button>
-</div>
+/>
 `;

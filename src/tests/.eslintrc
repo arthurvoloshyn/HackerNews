@@ -8,7 +8,6 @@
   "rules": {
     "global-require": "off",
     "max-len": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
 
     "import/prefer-default-export": "off",
 

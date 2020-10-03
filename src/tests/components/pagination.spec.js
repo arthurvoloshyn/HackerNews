@@ -2,7 +2,7 @@ import React from 'react';
 
 import Pagination from '../../components/pagination/pagination';
 
-const setUp = props => shallow(<Pagination {...props} lastPage={20} />);
+const setUp = props => shallow(<Pagination lastPage={20} {...props} />);
 
 describe('Pagination component', () => {
   it('should render Pagination without props', () => {
@@ -27,6 +27,11 @@ describe('Pagination component', () => {
 
   it('should render Pagination with 3dots and 3 buttons in the end', () => {
     const component = setUp({ page: 19 });
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render Pagination with 4 buttons', () => {
+    const component = setUp({ page: 1, lastPage: 4 });
     expect(component).toMatchSnapshot();
   });
 
