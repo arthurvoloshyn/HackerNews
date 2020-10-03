@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import { PAGES } from '../../constants/constants';
 
@@ -25,15 +26,17 @@ const renderPaginationBtns = (onClick, page, lastPage) => {
     btnsArr = [...middleBtn, ...lastBtns]; // last 3 pages
   }
 
-  return btnsArr.map(num =>
-    num === '...' ? (
+  return btnsArr.map(num => {
+    const classes = classNames({ active: num === page });
+
+    return num === '...' ? (
       num
     ) : (
-      <button key={num} className={num === page ? 'active' : ''} data-name={num} onClick={onClick}>
+      <button key={num} className={classes} data-name={num} onClick={onClick}>
         {num}
       </button>
-    ),
-  );
+    );
+  });
 };
 
 const Pagination = ({ onClick, page, lastPage }) => (
