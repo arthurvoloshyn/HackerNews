@@ -12,3 +12,11 @@
   margin: 0;
   padding: 0;
 }
+
+.error {
+  color: rgba(175, 47, 47, 0.9);
+  font-size: 28px;
+  padding: 20px 0 10px;
+  text-align: center;
+  width: 100%;
+}

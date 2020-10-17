@@ -38,6 +38,21 @@ describe('Posts component', () => {
     expect(global.fetch).toHaveBeenCalledWith(`${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAMS}`);
   });
 
+  describe('should call fetch and reject', () => {
+    beforeAll(() => {
+      global.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(new Error()));
+    });
+
+    afterAll(() => {
+      global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
+    });
+
+    it('fetches news from an API and reject', () => {
+      const wrapper = component.find('.error');
+      expect(wrapper.length).toBe(1);
+    });
+  });
+
   describe('updatePage method', () => {
     it("should update state 'page' value", () => {
       instance.updatePage(INIT_PAGE);

@@ -16,6 +16,7 @@ class Posts extends Component {
     result: {},
     hitsPerPage: 20,
     page: 0,
+    error: null,
   };
 
   componentDidMount() {
@@ -23,13 +24,17 @@ class Posts extends Component {
     this.fetchData(searchQuery, hitsPerPage, page);
   }
 
-  fetchData = (searchQuery, hitsPerPage, page) => {
+  fetchData = async (searchQuery, hitsPerPage, page) => {
     const { BASE_PATH, SEARCH_PATH, SEARCH_PARAM, PAGE_HITS, PAGE_PARAM } = PATHS;
     const PARAMS = `${SEARCH_PARAM}${searchQuery}&${PAGE_HITS}${hitsPerPage}&${PAGE_PARAM}${page}`;
 
-    fetch(`${BASE_PATH}${SEARCH_PATH}?${PARAMS}`)
-      .then(res => res.json())
-      .then(result => this.setNews(result));
+    try {
+      const response = await fetch(`${BASE_PATH}${SEARCH_PATH}?${PARAMS}`);
+      const result = await response.json();
+      this.setNews(result);
+    } catch (error) {
+      this.setState({ error });
+    }
   };
 
   handleInputChange = ({ target: { value } }) => {
@@ -104,7 +109,7 @@ class Posts extends Component {
   };
 
   render() {
-    const { searchQuery, result, hitsPerPage } = this.state;
+    const { searchQuery, result, hitsPerPage, error } = this.state;
     const { hits = [], page, nbPages } = result;
     const isHitsExist = hits.length > 0;
 
@@ -116,6 +121,9 @@ class Posts extends Component {
           <Pagination lastPage={nbPages} onClick={this.handlePageChange} page={page} />
         )}
         <Input onChange={this.handleInputChange} onKeyPress={this.getSearch} value={searchQuery} />
+
+        {error && <span className="error">Something went wrong...</span>}
+
         <ul className="newsList">
           {hits.map(
             ({
