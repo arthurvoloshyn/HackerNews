@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PATHS, PAGES } from '../../constants/constants';
+import { PAGES, PATHS } from '../../constants/constants';
 import Posts from '../../containers/posts/posts';
 
 import { NEWS } from '../stubs/stubs';

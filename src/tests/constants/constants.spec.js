@@ -1,4 +1,4 @@
-import { PATHS, PAGES, HITS } from '../../constants/constants';
+import { HITS, PAGES, PATHS } from '../../constants/constants';
 
 describe('Constants', () => {
   describe('PATHS constant', () => {

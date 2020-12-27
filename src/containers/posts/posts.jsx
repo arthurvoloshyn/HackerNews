@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { PATHS, HITS, PAGES } from '../../constants/constants';
+import { HITS, PAGES, PATHS } from '../../constants/constants';
 import { getIsValidNumber } from '../../utils/utils';
 import Title from '../../components/title/title';
 import Post from '../../components/post/post';

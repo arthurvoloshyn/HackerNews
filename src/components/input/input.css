@@ -27,12 +27,15 @@
 .input::-webkit-input-placeholder {
   font-family: 'Indie Flower', cursive;
 }
+
 .input::-moz-placeholder {
   font-family: 'Indie Flower', cursive;
 }
+
 .input:-moz-placeholder {
   font-family: 'Indie Flower', cursive;
 }
+
 .input:-ms-input-placeholder {
   font-family: 'Indie Flower', cursive;
 }
