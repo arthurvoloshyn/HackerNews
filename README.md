@@ -7,6 +7,8 @@ Simple React Hacker News Application
 ### Provides
 
 - react ^16.x
+- jest 24.x
+- enzyme 3.x
 
 ### To install
 
