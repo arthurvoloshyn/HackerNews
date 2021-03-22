@@ -54,53 +54,49 @@ describe('Posts component', () => {
   });
 
   describe('updatePage method', () => {
-    it("should update state 'page' value", () => {
+    beforeEach(() => {
       instance.updatePage(INIT_PAGE);
+    });
+
+    it("should update state 'page' value", () => {
       expect(component.state().page).toBe(INIT_PAGE);
     });
 
     it('should call fetch with given argument', () => {
       const SEARCH_PARAMS = `${SEARCH_PARAM}${defaultSearchQuery}&${PAGE_HITS}${defaultHitsPerPage}&${PAGE_PARAM}${INIT_PAGE}`;
 
-      instance.updatePage(INIT_PAGE);
       expect(global.fetch).toHaveBeenCalledWith(`${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAMS}`);
     });
   });
 
   describe('handlePageChange method', () => {
-    it("should call 'updatePage' with given argument", () => {
+    beforeEach(() => {
       instance.updatePage = jest.fn();
       instance.setState({ page: INIT_PAGE });
+    });
+
+    const handlePageChange = dataName =>
       instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue('1') },
+        target: { getAttribute: jest.fn().mockReturnValue(dataName) },
       });
+
+    it("should call 'updatePage' with given argument", () => {
+      handlePageChange('1');
       expect(instance.updatePage).toHaveBeenCalledWith(1);
     });
 
     it("should call 'updatePage' with increased value", () => {
-      instance.updatePage = jest.fn();
-      instance.setState({ page: INIT_PAGE });
-      instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue(PAGES.PREV) },
-      });
+      handlePageChange(PAGES.PREV);
       expect(instance.updatePage).toHaveBeenCalledWith(INIT_PAGE - 1);
     });
 
     it("should call 'updatePage' with decreased value", () => {
-      instance.updatePage = jest.fn();
-      instance.setState({ page: INIT_PAGE });
-      instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue(PAGES.NEXT) },
-      });
+      handlePageChange(PAGES.NEXT);
       expect(instance.updatePage).toHaveBeenCalledWith(INIT_PAGE + 1);
     });
 
     it("should call 'updatePage' with incorrect value", () => {
-      instance.updatePage = jest.fn();
-      instance.setState({ page: INIT_PAGE });
-      instance.handlePageChange({
-        target: { getAttribute: jest.fn().mockReturnValue('Test') },
-      });
+      handlePageChange('Test');
       expect(instance.updatePage).toHaveBeenCalledTimes(0);
     });
   });
@@ -128,16 +124,22 @@ describe('Posts component', () => {
       });
     });
 
-    it("should handle change page if 'Enter' clicked", () => {
-      instance.setState({ page: INIT_PAGE });
-      instance.getSearch({ key: 'Enter' });
-      expect(component.state().page).toBe(defaultPage);
-    });
+    describe('should handle change page if key clicked', () => {
+      beforeEach(() => {
+        instance.setState({ page: INIT_PAGE });
+      });
 
-    it("should not change page if 'a' button clicked", () => {
-      instance.setState({ page: INIT_PAGE });
-      instance.getSearch({ key: 'a' });
-      expect(component.state().page).toBe(INIT_PAGE);
+      const getSearch = key => instance.getSearch({ key });
+
+      it("should handle change page if 'Enter' clicked", () => {
+        getSearch('Enter');
+        expect(component.state().page).toBe(defaultPage);
+      });
+
+      it("should not change page if 'a' button clicked", () => {
+        getSearch('a');
+        expect(component.state().page).toBe(INIT_PAGE);
+      });
     });
   });
 });
